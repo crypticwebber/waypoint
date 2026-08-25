@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  @apply bg-ink text-paper font-body antialiased;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display;
+}
+
+::selection {
+  background: #E8A33D;
+  color: #12181B;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid #E8A33D;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ---------- Signature element: the Waypoint route line ----------
+   A dotted path with circular waypoint markers. Used for progress bars,
+   module sequences, and (matching the PDF certificate) as a decorative
+   flourish. Defined once here, reused everywhere via .route-line. */
+
+.route-line {
+  position: relative;
+  height: 4px;
+  border-radius: 999px;
+  background: repeating-linear-gradient(
+    to right,
+    #3a4650 0px, #3a4650 6px, transparent 6px, transparent 12px
+  );
+  overflow: visible;
+}
+
+.route-line-fill {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(to right, #2E7D6B, #E8A33D);
+  transition: width 0.5s ease;
+}
+
+.route-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 2px solid #12181B;
+  flex-shrink: 0;
+}
+
+.card {
+  @apply bg-ink-soft border border-white/5 rounded-2xl;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-amber text-ink font-display font-semibold px-5 py-2.5 hover:bg-amber-bright transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 text-paper font-display font-semibold px-5 py-2.5 hover:border-white/40 hover:bg-white/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-full text-mist hover:text-paper px-4 py-2 transition-colors;
+}
+
+.input {
+  @apply w-full rounded-xl bg-ink-soft border border-white/10 px-4 py-2.5 text-paper placeholder:text-mist focus:border-amber/60 outline-none transition-colors;
+}
+
+.label {
+  @apply text-xs uppercase tracking-wider text-mist font-medium;
+}
+
+.skeleton {
+  @apply animate-pulse bg-white/5 rounded-lg;
+}
+
+.badge {
+  @apply inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full;
+}
+
+.lesson-content h1, .lesson-content h2, .lesson-content h3 {
+  @apply font-display font-semibold text-paper mt-8 mb-3;
+}
+.lesson-content h1 { @apply text-2xl; }
+.lesson-content h2 { @apply text-xl; }
+.lesson-content h3 { @apply text-lg; }
+.lesson-content p { @apply text-paper/85 leading-relaxed mb-4; }
+.lesson-content ul, .lesson-content ol { @apply text-paper/85 leading-relaxed mb-4 pl-6 space-y-1; }
+.lesson-content ul { @apply list-disc; }
+.lesson-content ol { @apply list-decimal; }
+.lesson-content strong { @apply text-paper font-semibold; }
+.lesson-content code { @apply font-mono text-sm bg-white/10 text-amber-bright px-1.5 py-0.5 rounded; }
+.lesson-content pre { @apply bg-[#0B0F11] border border-white/10 rounded-xl p-4 overflow-x-auto mb-5; }
+.lesson-content pre code { @apply bg-transparent text-paper/90 p-0; }
