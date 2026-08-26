@@ -24,3 +24,5 @@ QUIZ_PASS_THRESHOLD = 70
 
 # Minimum course completion (%) before a learner is allowed to leave a review.
 REVIEW_PROGRESS_THRESHOLD = 20
+
+ALLOWED_ORIGINS = os.environ.get("WAYPOINT_ALLOWED_ORIGINS", "*").split(",")

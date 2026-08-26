@@ -3,8 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import Base, engine
 from app import models  # noqa: F401 -- ensures models are registered before create_all
+from app.config import ALLOWED_ORIGINS
 from app.routers import auth, preferences, courses, learning, reviews, certificates, recommendations, dashboard, instructor
-
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
@@ -20,7 +20,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
